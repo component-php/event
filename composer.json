@@ -1,5 +1,5 @@
 {
-  "name": "component/event",
+  "name": "mod/event",
   "description": "Event emitter for PHP",
   "keywords": ["event", "event emitter", "hook"],
   "license": "MIT",
@@ -14,7 +14,7 @@
   },
   "autoload": {
     "psr-0": {
-      "Component\\Event": "lib/"
+      "Mod\\Event": "lib/"
     }
   }
 }

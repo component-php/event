@@ -1,13 +1,13 @@
 Other Languages：[English](./README.md)
 
-# 介绍 [![Build Status](https://travis-ci.org/component-php/event.png)](https://travis-ci.org/component-php/event)
+# 介绍 [![Build Status](https://travis-ci.org/mod-php/event.png)](https://travis-ci.org/mod-php/event)
 
 简单的事件管理器
 
 # 安装
 
 ```
-composer require component/event
+composer require mod/event
 ```
 
 # 使用方式

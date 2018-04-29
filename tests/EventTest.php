@@ -1,5 +1,5 @@
 <?php
-namespace Component;
+namespace Mod;
 
 class EventTest extends \PHPUnit_Framework_TestCase
 {

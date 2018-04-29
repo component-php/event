@@ -1,13 +1,13 @@
 Other Languages：[中文版本](./README_zh.md)
 
-# Intro [![Build Status](https://travis-ci.org/component-php/event.png)](https://travis-ci.org/component-php/event)
+# Intro [![Build Status](https://travis-ci.org/mod-php/event.png)](https://travis-ci.org/mod-php/event)
 
 A simple Event
 
 # Install
 
 ```
-composer require component/event
+composer require mod/event
 ```
 
 # Usage

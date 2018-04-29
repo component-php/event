@@ -1,6 +1,6 @@
 <?php
 
-namespace Component;
+namespace Mod;
 
 if (function_exists('FNMATCH')) {
     define('FNMATCH', true);
