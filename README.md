@@ -6,10 +6,8 @@ A simple Event
 
 # Install
 
-Add `"pagon/event": "*"` to `composer.json`
-
 ```
-composer.phar install
+composer require component/event
 ```
 
 # Usage
