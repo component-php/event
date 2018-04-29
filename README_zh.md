@@ -1,71 +1,79 @@
-# Intro [![Build Status](https://travis-ci.org/hfcorriez/php-event.png)](https://travis-ci.org/hfcorriez/php-event)
+Other Languages：[English](./README.md)
 
-A simple Event
+# 介绍 [![Build Status](https://travis-ci.org/component-php/event.png)](https://travis-ci.org/component-php/event)
 
-# Install
+简单的事件管理器
 
-Add `"pagon/event": "*"` to `composer.json`
+# 安装
 
 ```
-composer.phar install
+composer require component/event
 ```
 
-# Usage
+# 使用方式
 
-## Bind and Emit
+## 触发和绑定
 
-### Simple
+### 简单方式
+
+很简单的使用方式
 
 ```php
 $event = new Event();
 
-// Bind event
+// 绑定事件
 $event->on('new', function () {
     echo 'A new client is coming' . PHP_EOL;
 });
 
-// Trigger
+// 触发
 $event->emit('new');
 ```
 
-### Bind once
+### 单次绑定
+
+绑定的事件只会被触发一次，适合第一次做一些事情的时候去使用
 
 ```php
 $event = new Event();
 
-// Bind event once
+// 绑定单次事件
 $event->once('new', function () {
     echo 'A new client is coming' . PHP_EOL;
 });
 
-// Trigger
+// 触发
 $event->emit('new');
 
-// Not trigger
+// 不触发
 $event->emit('new');
 ```
 
-### Bind many times
+### 多次绑定
+
+绑定的事件被触发N次，适合一些有固定用途的事件
 
 ```php
 $event = new Event();
 
-// Bind event twice
+// 绑定2次事件
 $event->many('new', 2, function () {
     echo 'A new client is coming' . PHP_EOL;
 });
 
-$event->emit('new'); // Trigger
-$event->emit('new'); // Trigger
-$event->emit('new'); // No trigger
+$event->emit('new'); // 触发
+$event->emit('new'); // 触发
+$event->emit('new'); // 不触发
 ```
 
-### Bind fuzzy
+### 模糊绑定
+
+绑定一个模糊的事件名称，可以匹配上的事件都会被触发
 
 ```php
 $event = new Event();
 
-// Bind fuzzy event
+// 绑定模糊事件
 $event->on('news.*', function($id){
     echo $id . ' is comming..., ID is ';
 });
@@ -75,27 +83,31 @@ $event->emit('news.2');
 $event->emit('news.3');
 ```
 
-## Remove
+## 删除
 
-### Unbind Event
+### 注销事件
+
+当事件不用的时候可以注销掉
 
 ```php
 $event = new Event();
 
-// Closure
+// 闭包回调
 $operator = function () {
     echo 'A new client is coming' . PHP_EOL;
 };
 
 $event->on('new', $operator);
 
-$event->emit('new');    // Trigger
+$event->emit('new');           // 触发
 
-$event->off('new', $operator); // Unbind
-$event->emit('new');    // No Trigger
+$event->off('new', $operator); // 解除绑定
+$event->emit('new');           // 不触发
 ```
 
-### Remove Events
+### 删除事件
+
+删除指定类型的所有事件
 
 ```php
 $event = new Event();
@@ -107,7 +119,9 @@ $event->on('new', function () {
 $event->removeAllListeners('new');
 ```
 
-### Remove all events
+### 删除所有事件
+
+清空事件
 
 ```php
 $event = new Event();
@@ -123,9 +137,9 @@ $event->on('close', function () {
 $event->removeAllListeners();
 ```
 
-### Extends class
+### 继承事件功能
 
-Add event feature for your class
+适用于为自己的对象增加事件功能
 
 ```php
 class MyClass extends Event {
